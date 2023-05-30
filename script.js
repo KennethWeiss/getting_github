@@ -4,7 +4,13 @@ async function getCoderData() {
     var response = await fetch("https://api.github.com/users/KennethWeiss");
     // We then need to convert the data into JSON format.
     var coderData = await response.json();
+    console.log(coderData.bio);
+    var div = document.createElement("div");
+    div.innerHTML = coderData.bio;
+    document.querySelector(".body").appendChild(div);
     return coderData;
 }
 
 console.log(getCoderData());
+
+console.log(getCoderData().bio)
